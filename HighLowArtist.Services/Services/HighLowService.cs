@@ -25,8 +25,8 @@ namespace HighLowArtist.Services.Services
             var artists = new List<FullArtist>();
             
             //TODO make this randomly choose two artists
-            artists.Add(spotify.Artists.Get(ArtistIds.Ids["Muse"]).Result);
-            artists.Add(spotify.Artists.Get(ArtistIds.Ids["Red Hot Chilli Peppers"]).Result);
+            artists.Add(spotify.Artists.Get(ArtistIds.Ids[0]).Result);
+            artists.Add(spotify.Artists.Get(ArtistIds.Ids[1]).Result);
             
             return artists;
         }
