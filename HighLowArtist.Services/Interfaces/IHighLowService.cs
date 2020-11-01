@@ -6,6 +6,6 @@ namespace HighLowArtist.Services.Interfaces
 {
     public interface IHighLowService
     { 
-        Task<List<FullArtist>> GetArtists(/*List<string> artistId*/);
+        Task<List<FullArtist>> GetArtists();
     }
 }

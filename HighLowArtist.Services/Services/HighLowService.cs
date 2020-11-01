@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HighLowArtist.Services.Interfaces;
@@ -13,7 +14,7 @@ namespace HighLowArtist.Services.Services
         {
         }
         
-        public async Task<List<FullArtist>> GetArtists(/*List<string> artistId*/)
+        public async Task<List<FullArtist>> GetArtists()
         {
             var config = SpotifyClientConfig.CreateDefault();
 
@@ -23,10 +24,17 @@ namespace HighLowArtist.Services.Services
             var spotify = new SpotifyClient(config.WithToken(response.AccessToken));
             
             var artists = new List<FullArtist>();
+            var rand = new Random();
+            int artistId1, artistId2, numArtists = ArtistIds.Ids.Count;
             
-            //TODO make this randomly choose two artists
-            artists.Add(spotify.Artists.Get(ArtistIds.Ids[0]).Result);
-            artists.Add(spotify.Artists.Get(ArtistIds.Ids[1]).Result);
+            do
+            {
+                artistId1 = rand.Next(0, numArtists);
+                artistId2 = rand.Next(0, numArtists);
+            } while (artistId1 == artistId2);
+            
+            artists.Add(spotify.Artists.Get(ArtistIds.Ids[artistId1]).Result);
+            artists.Add(spotify.Artists.Get(ArtistIds.Ids[artistId2]).Result);
             
             return artists;
         }
