@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using HighLowArtist.Services.Interfaces;
 using SpotifyAPI.Web;
@@ -10,12 +9,10 @@ namespace HighLowArtist.Services.Services
 {
     public class HighLowService : IHighLowService
     {
-        public HighLowService()
-        {
-        }
-        
         public async Task<List<FullArtist>> GetArtists()
         {
+            //TODO: Apply SOLID to this function
+            
             var config = SpotifyClientConfig.CreateDefault();
 
             var request = new ClientCredentialsRequest(Secrets.ClientId, Secrets.ClientSecret);
