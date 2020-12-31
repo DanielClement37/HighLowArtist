@@ -5,6 +5,7 @@ riderModule.iml
 /_ReSharper.Caches/
 
 HighLowArtist.Data/Secrets.cs
+node_modules/
 
 *.swp
 *.*~
