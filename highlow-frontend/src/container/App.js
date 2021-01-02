@@ -1,11 +1,11 @@
-import NavBar from '../components/NavBar';
-import Game from '../components/Game'
+import Header from '../components/Header/Header';
+import Game from '../components/Game/Game'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <Header />
       <Game />
     </div>
   );
